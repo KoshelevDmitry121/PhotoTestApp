@@ -12,5 +12,10 @@ extension Container {
     var networkService: Factory<NetworkServiceInterface> {
         Factory(self) { NetworkService() }
     }
+    
+    @MainActor
+    var storageService: Factory<StorageServiceInterface> {
+        Factory(self) { StorageService() }
+    }
 
 }

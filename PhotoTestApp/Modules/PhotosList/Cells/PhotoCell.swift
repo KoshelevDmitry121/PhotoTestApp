@@ -20,18 +20,21 @@ final class PhotoCell: UITableViewCell {
         let view = UILabel()
         view.numberOfLines = 1
         view.lineBreakMode = .byTruncatingTail
+        view.textColor = .black
         return view
     }()
     
     private lazy var albumIdLabel: UILabel = {
         let view = UILabel()
         view.numberOfLines = 1
+        view.textColor = .black
         return view
     }()
     
     private lazy var idLabel: UILabel = {
         let view = UILabel()
         view.numberOfLines = 1
+        view.textColor = .black
         return view
     }()
     
@@ -40,6 +43,7 @@ final class PhotoCell: UITableViewCell {
         
         setupSubviews()
         selectionStyle = .none
+        backgroundColor = .white
     }
     
     required init?(coder: NSCoder) {

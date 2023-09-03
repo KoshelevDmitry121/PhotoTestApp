@@ -26,6 +26,9 @@
 		F539CE772AA3A43B00310F37 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F539CE762AA3A43B00310F37 /* NetworkService.swift */; };
 		F539CE7A2AA3AB5600310F37 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = F539CE792AA3AB5600310F37 /* Factory */; };
 		F539CE7D2AA3B25500310F37 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F539CE7C2AA3B25500310F37 /* PhotosViewController.swift */; };
+		F539CE832AA4EA9200310F37 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F539CE822AA4EA9200310F37 /* StorageService.swift */; };
+		F539CE862AA4EAE900310F37 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F539CE852AA4EAE900310F37 /* Realm */; };
+		F539CE882AA4EAE900310F37 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F539CE872AA4EAE900310F37 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,7 @@
 		F539CE722AA3A3F500310F37 /* Factory+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Factory+Register.swift"; sourceTree = "<group>"; };
 		F539CE762AA3A43B00310F37 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		F539CE7C2AA3B25500310F37 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		F539CE822AA4EA9200310F37 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,10 +57,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F539CE882AA4EAE900310F37 /* RealmSwift in Frameworks */,
 				F539CE6F2AA39DAD00310F37 /* SDWebImage in Frameworks */,
 				F539CE572AA3570000310F37 /* SnapKit in Frameworks */,
 				F539CE712AA39DAE00310F37 /* SDWebImageMapKit in Frameworks */,
 				F539CE7A2AA3AB5600310F37 /* Factory in Frameworks */,
+				F539CE862AA4EAE900310F37 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +152,7 @@
 			children = (
 				F539CE752AA3A40500310F37 /* DI */,
 				F539CE762AA3A43B00310F37 /* NetworkService.swift */,
+				F539CE822AA4EA9200310F37 /* StorageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -187,6 +194,8 @@
 				F539CE6E2AA39DAD00310F37 /* SDWebImage */,
 				F539CE702AA39DAE00310F37 /* SDWebImageMapKit */,
 				F539CE792AA3AB5600310F37 /* Factory */,
+				F539CE852AA4EAE900310F37 /* Realm */,
+				F539CE872AA4EAE900310F37 /* RealmSwift */,
 			);
 			productName = PhotoTestApp;
 			productReference = F539CE3E2AA33CE000310F37 /* PhotoTestApp.app */;
@@ -220,6 +229,7 @@
 				F539CE552AA3570000310F37 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F539CE6D2AA39DAD00310F37 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				F539CE782AA3AB5600310F37 /* XCRemoteSwiftPackageReference "Factory" */,
+				F539CE842AA4EAE800310F37 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = F539CE3F2AA33CE000310F37 /* Products */;
 			projectDirPath = "";
@@ -260,6 +270,7 @@
 				F539CE6A2AA399F300310F37 /* UIView + Subviews.swift in Sources */,
 				F539CE772AA3A43B00310F37 /* NetworkService.swift in Sources */,
 				F539CE442AA33CE000310F37 /* SceneDelegate.swift in Sources */,
+				F539CE832AA4EA9200310F37 /* StorageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,9 +407,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NLPJT89388;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhotoTestApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -429,9 +441,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NLPJT89388;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhotoTestApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -505,6 +518,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		F539CE842AA4EAE800310F37 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -527,6 +548,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F539CE782AA3AB5600310F37 /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
+		};
+		F539CE852AA4EAE900310F37 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F539CE842AA4EAE800310F37 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		F539CE872AA4EAE900310F37 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F539CE842AA4EAE800310F37 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -17,10 +17,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        let viewController = PhotosListViewController(viewModel: PhotosListViewModel())
-        let navigation = UINavigationController(rootViewController: viewController)
+        let tabbar = UITabBarController()
         
-        window.rootViewController = navigation
+        let listViewController = PhotosListViewController(viewModel: PhotosListViewModel())
+        let listNavigationController = UINavigationController(rootViewController: listViewController)
+        listNavigationController.tabBarItem.image = UIImage(systemName: "list.bullet")
+        
+//        let favoritesViewController = PhotosListViewController(viewModel: PhotosListViewModel())
+//        let favoritesNavigationController = UINavigationController(rootViewController: favoritesViewController)
+//        favoritesNavigationController.tabBarItem.image = UIImage(systemName: "star")
+        
+        tabbar.viewControllers = [listNavigationController]
+        window.rootViewController = tabbar
         
         self.window = window
         window.makeKeyAndVisible()

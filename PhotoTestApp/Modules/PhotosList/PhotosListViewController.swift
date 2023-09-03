@@ -15,13 +15,19 @@ final class PhotosListViewController: UIViewController {
     
     private let viewModel: PhotosListViewModel
     
+    private lazy var searchController: UISearchController = {
+        let controller = UISearchController()
+        controller.searchResultsUpdater = self
+        controller.extendedLayoutIncludesOpaqueBars = true
+        return controller
+    }()
+    
     private lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero)
         view.separatorStyle = .none
         view.backgroundColor = .white
         view.alwaysBounceVertical = true
         view.showsVerticalScrollIndicator = false
-        view.contentInsetAdjustmentBehavior = .never
         view.rowHeight = UITableView.automaticDimension
         view.register(PhotoCell.self, forCellReuseIdentifier: String(describing: PhotoCell.self))
         view.delegate = self
@@ -55,9 +61,9 @@ final class PhotosListViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = "List"
+        navigationItem.searchController = searchController
         view.backgroundColor = .white
         setupSubviews()
-        viewModel.loadList()
     }
     
     @MainActor
@@ -77,7 +83,7 @@ final class PhotosListViewController: UIViewController {
     
     func setupConstraints() {
         tableView.snp.makeConstraints {
-            $0.edges.equalTo(view.safeAreaLayoutGuide)
+            $0.edges.equalToSuperview()
         }
     }
 
@@ -88,7 +94,6 @@ final class PhotosListViewController: UIViewController {
 extension PhotosListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? PhotoCell else { return }
         let row = tableViewDataSource.snapshot().itemIdentifiers[indexPath.row]
         switch row {
         case let .photo(model):
@@ -97,4 +102,15 @@ extension PhotosListViewController: UITableViewDelegate {
         }
     }
 
+}
+
+// MARK: - UISearchResultsUpdating
+
+extension PhotosListViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text?.lowercased() else { return }
+        viewModel.loadList(filteredText: text)
+    }
+    
 }
