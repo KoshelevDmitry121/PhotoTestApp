@@ -24,6 +24,7 @@ final class PhotosListViewController: UIViewController {
         view.contentInsetAdjustmentBehavior = .never
         view.rowHeight = UITableView.automaticDimension
         view.register(PhotoCell.self, forCellReuseIdentifier: String(describing: PhotoCell.self))
+        view.delegate = self
         return view
     }()
     
@@ -56,9 +57,10 @@ final class PhotosListViewController: UIViewController {
         navigationItem.title = "List"
         view.backgroundColor = .white
         setupSubviews()
-        loadTableView()
+        viewModel.loadList()
     }
     
+    @MainActor
     func loadTableView() {
         var snapshot = Snapshot()
         for item in viewModel.sections {
@@ -76,6 +78,22 @@ final class PhotosListViewController: UIViewController {
     func setupConstraints() {
         tableView.snp.makeConstraints {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
+
+}
+
+// MARK: - UITableViewDelegate
+
+extension PhotosListViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? PhotoCell else { return }
+        let row = tableViewDataSource.snapshot().itemIdentifiers[indexPath.row]
+        switch row {
+        case let .photo(model):
+            let photosViewController = PhotosViewController(imageUrl: model.url)
+            navigationController?.pushViewController(photosViewController, animated: true)
         }
     }
 

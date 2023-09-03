@@ -13,21 +13,21 @@ final class PhotosListViewModel {
     
     private let model = PhotosListModel()
     
-    var sections: [PortfolioSectionData] = [
-        PortfolioSectionData(
-            section: PhotosListSection.photos,
-            rows: [
-                PhotosListRow.photo(
-                    PhotoModel(
-                        albumId: 1,
-                        id: 1,
-                        title: "accusamus beatae ad facilis cum similique qui sunt",
-                        url: "https://via.placeholder.com/600/92c952",
-                        thumbnailUrl: "https://via.placeholder.com/150/92c952"
-                    )
+    var sections: [PortfolioSectionData] = []
+    
+    func loadList() {
+        Task {
+            let photosList = await model.getPhotosList()
+            sections = [
+                PortfolioSectionData(
+                    section: PhotosListSection.photos,
+                    rows: photosList.map {
+                        PhotosListRow.photo($0)
+                    }
                 )
             ]
-        )
-    ]
+            await viewController?.loadTableView()
+        }
+    }
     
 }

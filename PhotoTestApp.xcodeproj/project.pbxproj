@@ -22,6 +22,10 @@
 		F539CE6C2AA39D9800310F37 /* UIImageView+SDWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F539CE6B2AA39D9800310F37 /* UIImageView+SDWebImage.swift */; };
 		F539CE6F2AA39DAD00310F37 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F539CE6E2AA39DAD00310F37 /* SDWebImage */; };
 		F539CE712AA39DAE00310F37 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F539CE702AA39DAE00310F37 /* SDWebImageMapKit */; };
+		F539CE732AA3A3F500310F37 /* Factory+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = F539CE722AA3A3F500310F37 /* Factory+Register.swift */; };
+		F539CE772AA3A43B00310F37 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F539CE762AA3A43B00310F37 /* NetworkService.swift */; };
+		F539CE7A2AA3AB5600310F37 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = F539CE792AA3AB5600310F37 /* Factory */; };
+		F539CE7D2AA3B25500310F37 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F539CE7C2AA3B25500310F37 /* PhotosViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,9 @@
 		F539CE662AA3633B00310F37 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		F539CE692AA399F300310F37 /* UIView + Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Subviews.swift"; sourceTree = "<group>"; };
 		F539CE6B2AA39D9800310F37 /* UIImageView+SDWebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+SDWebImage.swift"; sourceTree = "<group>"; };
+		F539CE722AA3A3F500310F37 /* Factory+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Factory+Register.swift"; sourceTree = "<group>"; };
+		F539CE762AA3A43B00310F37 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		F539CE7C2AA3B25500310F37 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +56,7 @@
 				F539CE6F2AA39DAD00310F37 /* SDWebImage in Frameworks */,
 				F539CE572AA3570000310F37 /* SnapKit in Frameworks */,
 				F539CE712AA39DAE00310F37 /* SDWebImageMapKit in Frameworks */,
+				F539CE7A2AA3AB5600310F37 /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +86,7 @@
 				F539CE432AA33CE000310F37 /* SceneDelegate.swift */,
 				F539CE5A2AA3572A00310F37 /* Modules */,
 				F539CE682AA399E500310F37 /* Extensions */,
+				F539CE742AA3A3FD00310F37 /* Services */,
 				F539CE4A2AA33CE200310F37 /* Assets.xcassets */,
 				F539CE4C2AA33CE200310F37 /* LaunchScreen.storyboard */,
 				F539CE4F2AA33CE200310F37 /* Info.plist */,
@@ -88,6 +97,7 @@
 		F539CE5A2AA3572A00310F37 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F539CE7B2AA3B21F00310F37 /* Photo */,
 				F539CE5B2AA3573600310F37 /* PhotosList */,
 			);
 			path = Modules;
@@ -131,6 +141,31 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		F539CE742AA3A3FD00310F37 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F539CE752AA3A40500310F37 /* DI */,
+				F539CE762AA3A43B00310F37 /* NetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F539CE752AA3A40500310F37 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				F539CE722AA3A3F500310F37 /* Factory+Register.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		F539CE7B2AA3B21F00310F37 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				F539CE7C2AA3B25500310F37 /* PhotosViewController.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,6 +186,7 @@
 				F539CE562AA3570000310F37 /* SnapKit */,
 				F539CE6E2AA39DAD00310F37 /* SDWebImage */,
 				F539CE702AA39DAE00310F37 /* SDWebImageMapKit */,
+				F539CE792AA3AB5600310F37 /* Factory */,
 			);
 			productName = PhotoTestApp;
 			productReference = F539CE3E2AA33CE000310F37 /* PhotoTestApp.app */;
@@ -183,6 +219,7 @@
 			packageReferences = (
 				F539CE552AA3570000310F37 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F539CE6D2AA39DAD00310F37 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				F539CE782AA3AB5600310F37 /* XCRemoteSwiftPackageReference "Factory" */,
 			);
 			productRefGroup = F539CE3F2AA33CE000310F37 /* Products */;
 			projectDirPath = "";
@@ -211,7 +248,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F539CE462AA33CE000310F37 /* PhotosListViewController.swift in Sources */,
+				F539CE7D2AA3B25500310F37 /* PhotosViewController.swift in Sources */,
 				F539CE622AA35AD600310F37 /* PhotosListDataSource.swift in Sources */,
+				F539CE732AA3A3F500310F37 /* Factory+Register.swift in Sources */,
 				F539CE5D2AA3574500310F37 /* PhotosListViewModel.swift in Sources */,
 				F539CE5F2AA3574D00310F37 /* PhotosListModel.swift in Sources */,
 				F539CE6C2AA39D9800310F37 /* UIImageView+SDWebImage.swift in Sources */,
@@ -219,6 +258,7 @@
 				F539CE652AA35AF200310F37 /* PhotoModel.swift in Sources */,
 				F539CE422AA33CE000310F37 /* AppDelegate.swift in Sources */,
 				F539CE6A2AA399F300310F37 /* UIView + Subviews.swift in Sources */,
+				F539CE772AA3A43B00310F37 /* NetworkService.swift in Sources */,
 				F539CE442AA33CE000310F37 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,6 +497,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		F539CE782AA3AB5600310F37 /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -474,6 +522,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F539CE6D2AA39DAD00310F37 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
+		};
+		F539CE792AA3AB5600310F37 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F539CE782AA3AB5600310F37 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

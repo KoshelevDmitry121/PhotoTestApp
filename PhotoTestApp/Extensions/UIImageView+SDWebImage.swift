@@ -17,7 +17,7 @@ extension UIImageView {
               let url = URL(string: urlAllowed) else { return }
         DispatchQueue.main.async {
             self.sd_setImage(with: url,
-                             placeholderImage: UIImage(named: "imagePlaceholder"),
+                             placeholderImage: UIImage(),
                              options: [.highPriority])
             
         }

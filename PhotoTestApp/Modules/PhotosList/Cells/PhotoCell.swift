@@ -11,6 +11,8 @@ final class PhotoCell: UITableViewCell {
     
     private lazy var photoImageView: UIImageView = {
         let view = UIImageView()
+        view.contentMode = .scaleAspectFill
+        view.layer.masksToBounds = true
         return view
     }()
     
@@ -56,7 +58,8 @@ final class PhotoCell: UITableViewCell {
     
     func setupConstraints() {
         photoImageView.snp.makeConstraints {
-            $0.top.bottom.leading.equalToSuperview()
+            $0.top.bottom.equalToSuperview().inset(5)
+            $0.leading.equalToSuperview()
             $0.size.equalTo(60)
         }
         titleLabel.snp.makeConstraints {
@@ -65,7 +68,7 @@ final class PhotoCell: UITableViewCell {
             $0.trailing.equalTo(-10)
         }
         albumIdLabel.snp.makeConstraints {
-            $0.bottom.equalTo(-5)
+            $0.bottom.equalTo(photoImageView).offset(-5)
             $0.leading.equalTo(titleLabel)
         }
         idLabel.snp.makeConstraints {
