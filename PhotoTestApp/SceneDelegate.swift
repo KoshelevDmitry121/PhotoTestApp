@@ -16,18 +16,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        
         let tabbar = UITabBarController()
         
         let listViewController = PhotosListViewController(viewModel: PhotosListViewModel())
         let listNavigationController = UINavigationController(rootViewController: listViewController)
         listNavigationController.tabBarItem.image = UIImage(systemName: "list.bullet")
         
-//        let favoritesViewController = PhotosListViewController(viewModel: PhotosListViewModel())
-//        let favoritesNavigationController = UINavigationController(rootViewController: favoritesViewController)
-//        favoritesNavigationController.tabBarItem.image = UIImage(systemName: "star")
+        let favoritesViewController = FavoritesListViewController(viewModel: FavoritesListViewModel())
+        let favoritesNavigationController = UINavigationController(rootViewController: favoritesViewController)
+        favoritesNavigationController.tabBarItem.image = UIImage(systemName: "star")
         
-        tabbar.viewControllers = [listNavigationController]
+        tabbar.viewControllers = [listNavigationController, favoritesNavigationController]
         window.rootViewController = tabbar
         
         self.window = window

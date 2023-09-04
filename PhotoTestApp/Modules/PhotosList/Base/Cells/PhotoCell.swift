@@ -81,7 +81,7 @@ final class PhotoCell: UITableViewCell {
         }
     }
     
-    func configure(model: PhotoModel) {
+    func configure(model: Photo) {
         photoImageView.loadImage(from: model.thumbnailUrl)
         titleLabel.text = model.title
         albumIdLabel.text = "Album Id: \(model.albumId)"

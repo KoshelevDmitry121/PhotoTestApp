@@ -8,30 +8,30 @@
 import Foundation
 import RealmSwift
 
-protocol StorageServiceInterface {
-    func write<T: Object>(objects: [T]) async
-    func getObjects<T: Object>() async -> Results<T>
-    func delete<T: Object>(objects: Results<T>) async
+protocol PhotoStorageServiceInterface {
+    func getObjects<T: Object>() -> Results<T>
+    func write<T: Object>(objects: [T])
+    func updateModel(id: Int, isFavorite: Bool)
 }
 
-@MainActor
-final class StorageService: StorageServiceInterface {
+final class PhotoStorageService: PhotoStorageServiceInterface {
     
     private let realm = try! Realm()
     
-    func write<T: Object>(objects: [T]) async {
-        try? realm.write {
+    func getObjects<T: Object>() -> Results<T> {
+        realm.objects(T.self)
+    }
+    
+    func write<T: Object>(objects: [T]) {
+        try! realm.write {
             realm.add(objects)
         }
     }
     
-    func getObjects<T: Object>() async -> Results<T> {
-        realm.objects(T.self)
-    }
-    
-    func delete<T: Object>(objects: Results<T>) async {
-        try? realm.write {
-            realm.delete(objects)
+    func updateModel(id: Int, isFavorite: Bool) {
+        let photo = realm.objects(Photo.self).first(where: { $0.id == id })
+        try! realm.write {
+            photo?.isFavorite = isFavorite
         }
     }
     

@@ -12,7 +12,7 @@ enum PhotosListSection: Hashable {
 }
 
 enum PhotosListRow: Hashable {
-    case photo(PhotoModel)
+    case photo(Photo)
 }
 
 struct PortfolioSectionData {

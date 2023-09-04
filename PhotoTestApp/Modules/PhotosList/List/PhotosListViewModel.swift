@@ -13,7 +13,7 @@ final class PhotosListViewModel {
     
     private let model = PhotosListModel()
     
-    private var photosList: [PhotoModel] = []
+    private var photosList: [Photo] = []
     var sections: [PortfolioSectionData] = []
     
     init() {
@@ -32,22 +32,20 @@ final class PhotosListViewModel {
     }
     
     func loadList(filteredText: String? = nil) {
-        Task {
-            sections = [
-                PortfolioSectionData(
-                    section: PhotosListSection.photos,
-                    rows: photosList
-                        .filter {
-                            guard let filteredText else { return true }
-                            return $0.title.lowercased().starts(with: filteredText)
-                        }
-                        .map {
-                            PhotosListRow.photo($0)
-                        }
-                )
-            ]
-            await viewController?.loadTableView()
-        }
+        sections = [
+            PortfolioSectionData(
+                section: PhotosListSection.photos,
+                rows: photosList
+                    .filter {
+                        guard let filteredText else { return true }
+                        return $0.title.lowercased().starts(with: filteredText)
+                    }
+                    .map {
+                        PhotosListRow.photo($0)
+                    }
+            )
+        ]
+        viewController?.loadTableView()
     }
     
 }

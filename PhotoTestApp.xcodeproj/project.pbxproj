@@ -21,14 +21,17 @@
 		F539CE6A2AA399F300310F37 /* UIView + Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F539CE692AA399F300310F37 /* UIView + Subviews.swift */; };
 		F539CE6C2AA39D9800310F37 /* UIImageView+SDWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F539CE6B2AA39D9800310F37 /* UIImageView+SDWebImage.swift */; };
 		F539CE6F2AA39DAD00310F37 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F539CE6E2AA39DAD00310F37 /* SDWebImage */; };
-		F539CE712AA39DAE00310F37 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F539CE702AA39DAE00310F37 /* SDWebImageMapKit */; };
 		F539CE732AA3A3F500310F37 /* Factory+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = F539CE722AA3A3F500310F37 /* Factory+Register.swift */; };
 		F539CE772AA3A43B00310F37 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F539CE762AA3A43B00310F37 /* NetworkService.swift */; };
 		F539CE7A2AA3AB5600310F37 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = F539CE792AA3AB5600310F37 /* Factory */; };
 		F539CE7D2AA3B25500310F37 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F539CE7C2AA3B25500310F37 /* PhotosViewController.swift */; };
-		F539CE832AA4EA9200310F37 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F539CE822AA4EA9200310F37 /* StorageService.swift */; };
-		F539CE862AA4EAE900310F37 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F539CE852AA4EAE900310F37 /* Realm */; };
-		F539CE882AA4EAE900310F37 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F539CE872AA4EAE900310F37 /* RealmSwift */; };
+		F539CE8B2AA4FAD700310F37 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F539CE8A2AA4FAD700310F37 /* ListViewController.swift */; };
+		F539CE8F2AA4FBAC00310F37 /* FavoritesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F539CE8E2AA4FBAC00310F37 /* FavoritesListViewController.swift */; };
+		F539CE912AA4FCC600310F37 /* FavoritesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F539CE902AA4FCC600310F37 /* FavoritesListModel.swift */; };
+		F539CE932AA4FD1A00310F37 /* FavoritesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F539CE922AA4FD1A00310F37 /* FavoritesListViewModel.swift */; };
+		F539CE962AA5BD5800310F37 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F539CE952AA5BD5800310F37 /* Realm */; };
+		F539CE982AA5BD5B00310F37 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F539CE972AA5BD5B00310F37 /* RealmSwift */; };
+		F539CE9A2AA5BD8800310F37 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F539CE992AA5BD8800310F37 /* StorageService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +52,11 @@
 		F539CE722AA3A3F500310F37 /* Factory+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Factory+Register.swift"; sourceTree = "<group>"; };
 		F539CE762AA3A43B00310F37 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		F539CE7C2AA3B25500310F37 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
-		F539CE822AA4EA9200310F37 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		F539CE8A2AA4FAD700310F37 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		F539CE8E2AA4FBAC00310F37 /* FavoritesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListViewController.swift; sourceTree = "<group>"; };
+		F539CE902AA4FCC600310F37 /* FavoritesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListModel.swift; sourceTree = "<group>"; };
+		F539CE922AA4FD1A00310F37 /* FavoritesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListViewModel.swift; sourceTree = "<group>"; };
+		F539CE992AA5BD8800310F37 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +64,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F539CE882AA4EAE900310F37 /* RealmSwift in Frameworks */,
 				F539CE6F2AA39DAD00310F37 /* SDWebImage in Frameworks */,
 				F539CE572AA3570000310F37 /* SnapKit in Frameworks */,
-				F539CE712AA39DAE00310F37 /* SDWebImageMapKit in Frameworks */,
+				F539CE962AA5BD5800310F37 /* Realm in Frameworks */,
+				F539CE982AA5BD5B00310F37 /* RealmSwift in Frameworks */,
 				F539CE7A2AA3AB5600310F37 /* Factory in Frameworks */,
-				F539CE862AA4EAE900310F37 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +80,7 @@
 			children = (
 				F539CE402AA33CE000310F37 /* PhotoTestApp */,
 				F539CE3F2AA33CE000310F37 /* Products */,
+				F539CE942AA5BD5800310F37 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,11 +120,9 @@
 			isa = PBXGroup;
 			children = (
 				F539CE632AA35AEE00310F37 /* Models */,
-				F539CE602AA3577A00310F37 /* Cells */,
-				F539CE452AA33CE000310F37 /* PhotosListViewController.swift */,
-				F539CE612AA35AD600310F37 /* PhotosListDataSource.swift */,
-				F539CE5C2AA3574500310F37 /* PhotosListViewModel.swift */,
-				F539CE5E2AA3574D00310F37 /* PhotosListModel.swift */,
+				F539CE892AA4FAD000310F37 /* Base */,
+				F539CE8D2AA4FB9D00310F37 /* Favorites */,
+				F539CE8C2AA4FB9700310F37 /* List */,
 			);
 			path = PhotosList;
 			sourceTree = "<group>";
@@ -152,7 +157,7 @@
 			children = (
 				F539CE752AA3A40500310F37 /* DI */,
 				F539CE762AA3A43B00310F37 /* NetworkService.swift */,
-				F539CE822AA4EA9200310F37 /* StorageService.swift */,
+				F539CE992AA5BD8800310F37 /* StorageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -171,6 +176,43 @@
 				F539CE7C2AA3B25500310F37 /* PhotosViewController.swift */,
 			);
 			path = Photo;
+			sourceTree = "<group>";
+		};
+		F539CE892AA4FAD000310F37 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F539CE602AA3577A00310F37 /* Cells */,
+				F539CE8A2AA4FAD700310F37 /* ListViewController.swift */,
+				F539CE612AA35AD600310F37 /* PhotosListDataSource.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		F539CE8C2AA4FB9700310F37 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				F539CE452AA33CE000310F37 /* PhotosListViewController.swift */,
+				F539CE5C2AA3574500310F37 /* PhotosListViewModel.swift */,
+				F539CE5E2AA3574D00310F37 /* PhotosListModel.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		F539CE8D2AA4FB9D00310F37 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				F539CE8E2AA4FBAC00310F37 /* FavoritesListViewController.swift */,
+				F539CE922AA4FD1A00310F37 /* FavoritesListViewModel.swift */,
+				F539CE902AA4FCC600310F37 /* FavoritesListModel.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		F539CE942AA5BD5800310F37 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,10 +234,9 @@
 			packageProductDependencies = (
 				F539CE562AA3570000310F37 /* SnapKit */,
 				F539CE6E2AA39DAD00310F37 /* SDWebImage */,
-				F539CE702AA39DAE00310F37 /* SDWebImageMapKit */,
 				F539CE792AA3AB5600310F37 /* Factory */,
-				F539CE852AA4EAE900310F37 /* Realm */,
-				F539CE872AA4EAE900310F37 /* RealmSwift */,
+				F539CE952AA5BD5800310F37 /* Realm */,
+				F539CE972AA5BD5B00310F37 /* RealmSwift */,
 			);
 			productName = PhotoTestApp;
 			productReference = F539CE3E2AA33CE000310F37 /* PhotoTestApp.app */;
@@ -264,13 +305,17 @@
 				F539CE5D2AA3574500310F37 /* PhotosListViewModel.swift in Sources */,
 				F539CE5F2AA3574D00310F37 /* PhotosListModel.swift in Sources */,
 				F539CE6C2AA39D9800310F37 /* UIImageView+SDWebImage.swift in Sources */,
+				F539CE9A2AA5BD8800310F37 /* StorageService.swift in Sources */,
 				F539CE672AA3633B00310F37 /* PhotoCell.swift in Sources */,
+				F539CE8B2AA4FAD700310F37 /* ListViewController.swift in Sources */,
 				F539CE652AA35AF200310F37 /* PhotoModel.swift in Sources */,
+				F539CE932AA4FD1A00310F37 /* FavoritesListViewModel.swift in Sources */,
 				F539CE422AA33CE000310F37 /* AppDelegate.swift in Sources */,
 				F539CE6A2AA399F300310F37 /* UIView + Subviews.swift in Sources */,
+				F539CE912AA4FCC600310F37 /* FavoritesListModel.swift in Sources */,
 				F539CE772AA3A43B00310F37 /* NetworkService.swift in Sources */,
 				F539CE442AA33CE000310F37 /* SceneDelegate.swift in Sources */,
-				F539CE832AA4EA9200310F37 /* StorageService.swift in Sources */,
+				F539CE8F2AA4FBAC00310F37 /* FavoritesListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,22 +584,17 @@
 			package = F539CE6D2AA39DAD00310F37 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
 		};
-		F539CE702AA39DAE00310F37 /* SDWebImageMapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F539CE6D2AA39DAD00310F37 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImageMapKit;
-		};
 		F539CE792AA3AB5600310F37 /* Factory */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F539CE782AA3AB5600310F37 /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
 		};
-		F539CE852AA4EAE900310F37 /* Realm */ = {
+		F539CE952AA5BD5800310F37 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F539CE842AA4EAE800310F37 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = Realm;
 		};
-		F539CE872AA4EAE900310F37 /* RealmSwift */ = {
+		F539CE972AA5BD5B00310F37 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F539CE842AA4EAE800310F37 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;

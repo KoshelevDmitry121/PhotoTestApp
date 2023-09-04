@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import Factory
+import RealmSwift
 
 final class PhotosViewController: UIViewController {
     
-    private let imageUrl: String
+    @Injected(\.storageService) private var storageService
+    
+    private let model: Photo
     
     private lazy var photoImageView: UIImageView = {
         let view = UIImageView()
@@ -18,8 +22,8 @@ final class PhotosViewController: UIViewController {
         return view
     }()
     
-    init(imageUrl: String) {
-        self.imageUrl = imageUrl
+    init(model: Photo) {
+        self.model = model
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -31,22 +35,50 @@ final class PhotosViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = "Photo"
+        
+        setupFavoritesButton()
         view.backgroundColor = .white
-        photoImageView.loadImage(from: imageUrl)
+        photoImageView.loadImage(from: model.url)
         setupSubviews()
     }
     
-    func setupSubviews() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    private func setupSubviews() {
         view.addSubview(photoImageView)
         setupConstraints()
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         photoImageView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(photoImageView.snp.width)
             $0.centerY.equalToSuperview()
         }
+    }
+    
+    @objc private func toggleFavorite() {
+        storageService.updateModel(id: model.id, isFavorite: !model.isFavorite)
+        setupFavoritesButton()
+    }
+    
+    private func setupFavoritesButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: model.isFavorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star"),
+            style: .done,
+            target: self,
+            action: #selector(toggleFavorite)
+        )
     }
 
 }

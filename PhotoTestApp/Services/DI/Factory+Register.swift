@@ -14,8 +14,8 @@ extension Container {
     }
     
     @MainActor
-    var storageService: Factory<StorageServiceInterface> {
-        Factory(self) { StorageService() }
+    var storageService: Factory<PhotoStorageServiceInterface> {
+        Factory(self) { PhotoStorageService() }
     }
 
 }
