@@ -51,7 +51,7 @@ final class PhotoCell: UITableViewCell {
     }
     
     func setupSubviews() {
-        addSubviews(
+        contentView.addSubviews(
             photoImageView,
             titleLabel,
             albumIdLabel,
